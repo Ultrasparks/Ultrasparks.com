@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MegaCube Sports The news that runs on microsoft!</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">MegaCube Sports</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="https://www.msn.com/en-us/sports?ocid=winp1taskbar&cvid=c4f104fafed84c219135d47da8fa75e6">Sports</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="news-section">
+      <h2>Latest Sports News come back each day to find more intresting sports articals!</h2>
+      <div id="news-articles" class="news-articles"></div>
+    <div id="news-articles" class="news-articles"></div>
+<button id="load-more-btn" class="load-more-btn">Load More</button>
+<script>
+  const apiKey = ""; // Replace with your real key
+  const newsSection = document.getElementById("news-articles");
+  const loadMoreBtn = document.getElementById("load-more-btn");
+
+  let start = 0;         // index to start fetching from
+  const max = 10;        // articles per fetch
+
+ 
+      
+
+      data.articles.forEach(article => {
+        const card = document.createElement("div");
+        card.className = "article";
+        card.innerHTML = `
+          <img src="${article.image || 'https://via.placeholder.com/150x90?text=No+Image'}" alt="${article.title}" />
+          <div class="article-content">
+            <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+            <p>${article.description || 'No description available.'}</p>
+          </div>
+        `;
+        newsSection.appendChild(card);
+      });
+
+      start += max; // update for next page
+      loadMoreBtn.disabled = false;
+      loadMoreBtn.textContent = "Load More";
+
+     'catch (error) 
+      console.error("Error loading news:", error);
+      loadMoreBtn.disabled = false;
+      loadMoreBtn.textContent = "Try Again";}
+  
+
+  // Load initial articles
+  window.addEventListener("DOMContentLoaded", () => {
+    loadNews();
+  });
+
+  // Load more on click
+  loadMoreBtn.addEventListener("click", () => {
+    loadNews();
+  });
+</script>
+
+    </section>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 MegaCube Sports. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
